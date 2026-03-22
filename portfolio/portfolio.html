@@ -1,0 +1,262 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maciej Przybylski | UX/UI Designer</title>
+  <link rel="stylesheet" href="portfolio.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<!-- CONTACT MODAL -->
+<div id="contact-modal" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h3>Let's talk!</h3>
+      <span class="close">&times;</span>
+    </div>
+    <div class="contact-info">
+      <div class="contact-item">
+        <strong>Phone</strong>
+        <p>+31 6 57298110</p>
+      </div>
+      <div class="contact-item">
+        <strong>Email</strong>
+        <p>benjitsupt@gmail.com</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<body>
+
+<body>
+
+  <header class="sticky-header">
+    <nav>
+      <ul>
+        <li><a href="portfolio.html" class="active">Home</a></li>
+        <li><a href="portfolio2.html">About</a></li>
+        <li><a href="#" class="nav-contact" data-modal="contact-modal">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+ <section class="hero">
+  <div class="hero-text">
+    <div class="intro reveal-item delay-0">
+      <h2 class="name">Maciej Przybylski</h2>
+      <p class="role">UX/UI Designer</p>
+    </div>
+    
+    <!-- Animated greeting -->
+    <div class="greeting-container reveal-item delay-1">
+      <h1 class="multilingual-greeting">👋 Hey There</h1>
+    </div>
+    
+    <p class="reveal-item delay-2">I have passion for combining creativity with user centric design</p>
+    
+    <div class="scroll-container reveal-item delay-3">
+      <div class="scroll-circle">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+          <path d="M7 10l5 5 5-5" stroke="#66c0c6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        "></svg>
+      </div>
+      <span>Scroll down to see my work</span>
+    </div>
+  </div>
+
+  <div class="hero-img reveal-item delay-4">
+    <img src="lightbulb.png" alt="Lightbulb Sketch">
+  </div>
+</section>
+
+
+
+  <section id="projects" class="projects">
+    <h2 class="reveal-item">My Projects</h2>
+
+    <div class="project-card reveal-item">
+      <img src="locker-prototype.jpg" alt="Locker Hybrid Prototype">
+      <div class="project-info">
+        <h3>Locker Hybrid Prototype</h3>
+        <p>A 3 week design challenge where I designed and tested prototypes of a physical locker and companion app.</p>
+        <a href="portfolio3.html" class="more">Read More </a>
+      </div>
+    </div>
+
+    <div class="project-card reveal-item">
+      <img src="fitness-app.jpg" alt="Low Fidelity Fitness App">
+      <div class="project-info">
+        <h3>Low Fidelity Fitness App</h3>
+        <p>Creating intuitive layout and functionality for sport enthusiasts.</p>
+        <a href="portfolio4.html" class="more">Read More </a>
+      </div>
+    </div>
+
+    <div class="project-card reveal-item">
+      <img src="exploratory-prototype.jpg" alt="Exploratory Prototype">
+      <div class="project-info">
+        <h3>Exploratory Prototype</h3>
+        <p>Building a research prototype to test hypotheses and understand users deeply.</p>
+        <a href="portfolio5.html" class="more">Read More </a>
+      </div>
+    </div>
+
+    <div class="project-card reveal-item">
+      <img src="bespoke-project.jpg" alt="Project Bespoke">
+      <div class="project-info">
+        <h3>Project Bespoke</h3>
+        <p>Creating an immersive story experience tailored for a specific user.</p>
+        <a href="portfolio6.html" class="more">Read More </a>
+      </div>
+    </div>
+
+  </section>
+
+  <script>
+  // Smooth scroll for ALL anchor links AND scroll-container
+  function smoothScroll(targetId) {
+    const target = document.getElementById(targetId);
+    if (target) {
+      target.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  }
+
+  // Handle anchor links (href="#projects")
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href').substring(1);
+      smoothScroll(targetId);
+    });
+  });
+
+  // Handle scroll-container click (NEW - this was missing!)
+  document.addEventListener('DOMContentLoaded', function() {
+    const scrollContainer = document.querySelector('.scroll-container');
+    if (scrollContainer) {
+      scrollContainer.addEventListener('click', function(e) {
+        e.preventDefault();
+        smoothScroll('projects');
+      });
+    }
+  });
+
+  // Scroll reveal (existing code)
+  const revealElements = document.querySelectorAll('.reveal-item');
+  const revealOnScroll = () => {
+    const windowHeight = window.innerHeight;
+    revealElements.forEach(el => {
+      const top = el.getBoundingClientRect().top;
+      if (top < windowHeight - 100) {
+        el.classList.add('visible');
+      }
+    });
+  };
+
+  window.addEventListener('scroll', revealOnScroll);
+  window.addEventListener('load', revealOnScroll);
+
+  // Language rotation (add this to your existing script)
+const greetings = [
+  { text: '👋 Hey There', lang: 'English' },
+  { text: '👋 مرحبا', lang: 'العربية' },
+  { text: '👋 Hola', lang: 'Español' },
+  { text: '👋 Cześć', lang: 'Polski' },
+  { text: '👋 Hoi', lang: 'Nederlands' },
+];
+
+let currentGreetingIndex = 0;
+
+function rotateGreeting() {
+  const greetingEl = document.querySelector('.multilingual-greeting');
+  const container = document.querySelector('.greeting-container');
+  
+  // Fade out current
+  container.classList.add('fade');
+  
+  setTimeout(() => {
+    // Switch text
+    greetingEl.textContent = greetings[currentGreetingIndex].text;
+    // Fade back in
+    container.classList.remove('fade');
+    
+    // Next greeting
+    currentGreetingIndex = (currentGreetingIndex + 1) % greetings.length;
+  }, 300); // Half the transition time
+}
+
+// Start rotation after hero reveal
+document.addEventListener('DOMContentLoaded', function() {
+  // Wait for hero reveal, then start
+  setTimeout(() => {
+    rotateGreeting();
+    setInterval(rotateGreeting, 2000); // Every 2 seconds
+  }, 1500);
+});
+
+// CONTACT MODAL
+document.addEventListener('DOMContentLoaded', function() {
+  const modal = document.getElementById('contact-modal');
+  const contactBtn = document.querySelector('.nav-contact');
+  const closeBtn = document.querySelector('.close');
+
+  // Open modal
+  if (contactBtn) {
+    contactBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      modal.style.display = 'block';
+    });
+  }
+
+  // Close modal
+  function closeModal() {
+    modal.style.display = 'none';
+  }
+
+  closeBtn.addEventListener('click', closeModal);
+  
+  // Close when clicking overlay
+  window.addEventListener('click', function(e) {
+    if (e.target === modal) {
+      closeModal();
+    }
+  });
+
+  // Close with Escape key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && modal.style.display === 'block') {
+      closeModal();
+    }
+  });
+});
+
+// THEME TOGGLE
+document.addEventListener('DOMContentLoaded', function() {
+  const toggle = document.getElementById('theme-toggle');
+  const html = document.documentElement;
+  
+  // Load saved theme or system preference
+  const savedTheme = localStorage.getItem('theme') || 
+                    (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  html.setAttribute('data-theme', savedTheme);
+  
+  toggle.addEventListener('click', function() {
+    const currentTheme = html.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    
+    html.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+  });
+});
+
+</script>
+
+</body>
+<!-- Here I had to put the script tag for the dust effect JS script -->
+</html>

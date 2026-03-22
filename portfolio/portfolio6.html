@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Bespoke | Maciej Przybylski</title>
+  <link rel="stylesheet" href="portfolio.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="sticky-header">
+    <nav>
+      <ul>
+        <li><a href="portfolio.html">Home</a></li>
+        <li><a href="portfolio2.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- HERO: Photo + Title + Description -->
+  <section class="case-hero reveal-item">
+    <div class="photo-container">
+      <img src="locker-hero.jpg" alt="Locker Hybrid Prototype" class="case-hero-image">
+    </div>
+    <div class="hero-text">
+      <h1 class="reveal-item delay-1">Project Bespoke</h1>
+      <p class="reveal-item delay-2">
+        Creating a personalized, immersive experience.
+      </p>
+    </div>
+  </section>
+
+  <!-- PROCESS SECTION -->
+  <section class="case-section reveal-item delay-3">
+    <div class="case-content">
+      <h2>Overview</h2>
+      <p>
+During this 3 month long course I went through the entire design thinking process together with a group of students in order to create a personalized immersive point and click game for another UXD student. 
+      </p>
+      <img src="locker-process.jpg" alt="Design Process" class="case-image">
+      <img src="locker-process.jpg" alt="Design Process" class="case-image">
+    </div>
+  </section>
+
+  <section class="case-section reveal-item delay-3">
+    <div class="case-content">
+      <h2>Research</h2>
+      <p>
+  I spent the first few weeks interviewing my user and spending time with her in order to get to know her. It helped me with gathering meaningful insights and creating a user portrait that became a source of my team's knowledge and inspiration in regards to the direction our ideation and designing would take.  </p>
+      <img src="locker-process.jpg" alt="Design Process" class="case-image">
+    </div>
+  </section>
+
+
+
+  <!-- SOLUTION SECTION -->
+  <section class="case-section reveal-item delay-5">
+    <div class="case-content">
+      <h2>Ideation</h2>
+      <p>
+     After having gathered a sufficient amount of information about my user, we began the process of ideation. In total we gathered 40 ideas each (total 120 ideas) after which we converged on our own. 
+     In my case I converged to the top 3 ideas using certain criterias by which I judged each idea.  </p>
+      <img src="locker-solution.jpg" alt="Final Solution" class="case-image">
+      <p>
+     After that I took the two ideas that felt the most fitted to my user's personality and merged them into one. 
+ </p>
+      <img src="locker-solution.jpg" alt="Final Solution" class="case-image">
+      <p>Finally it was time to come up with the final concept and a storyboard that would become the basis of our future design. </p> 
+      <img src="locker-solution.jpg" alt="Final Solution" class="case-image">
+    </div>
+  </section>
+
+  <section class="case-section reveal-item delay-5">
+    <div class="case-content">
+      <h2>Prototyping</h2>
+      <p>
+   In the prototyping phase I went through all fidelity stages starting from Paper prototype, through low and mid fidelity and finishing up with a High Fidelity version which I worked on together with my teammates. 
+      </p>
+      <img src="locker-solution.jpg" alt="Final Solution" class="case-image">
+    </div>
+  </section>
+
+    <section class="case-section reveal-item delay-5">
+    <div class="case-content">
+      <p>
+    The idea behind the aesthetics was to target my users passion for art and creativity through a drawn environment in the game. In the first 3 stages of prototyping that meant I hand drew all of the elements found in the game. However, in the high fidelity version we wanted it to have a more polished immersive look to it and hence we enhanced the images that me and my teammates made, using generative AI (due to time constraints which was just 1 week for the high fi).
+    </p>
+      <img src="locker-solution.jpg" alt="Final Solution" class="case-image">
+    </div>
+  </section>
+
+ <section class="case-section reveal-item delay-5">
+    <div class="case-content">
+      <h2>Reflection</h2>
+      <p>
+     I learnt a lot about my strengths and weaknesses during the entire duration of this project. I was satisfied with the attention to detail me and my team put when it came to making the final experience as personal as possible for the target user.
+      However, I suffered from overfixation on a singular idea during the ideation process, which slowed down my creativity. </p>
+    </div>
+  </section>
+  <script>
+    // Universal scroll reveal (same as other pages)
+    const revealElements = document.querySelectorAll('.reveal-item');
+    const revealOnScroll = () => {
+      const windowHeight = window.innerHeight;
+      revealElements.forEach(el => {
+        const top = el.getBoundingClientRect().top;
+        if (top < windowHeight - 100) {
+          el.classList.add('visible');
+        }
+      });
+    };
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
+  </script>
+</body>

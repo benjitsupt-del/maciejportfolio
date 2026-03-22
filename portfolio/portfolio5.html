@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exploratory-prototype | Maciej Przybylski</title>
+  <link rel="stylesheet" href="portfolio.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="sticky-header">
+    <nav>
+      <ul>
+        <li><a href="portfolio.html">Home</a></li>
+        <li><a href="portfolio2.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- HERO: Photo + Title + Description -->
+  <section class="case-hero reveal-item">
+    <div class="photo-container">
+      <img src="locker-hero.jpg" alt="Locker Hybrid Prototype" class="case-hero-image">
+    </div>
+    <div class="hero-text">
+      <h1 class="reveal-item delay-1">Exploratory-prototype</h1>
+      <p class="reveal-item delay-2">
+        Proving a hypothesis through a research prototype
+      </p>
+    </div>
+  </section>
+
+  <!-- PROCESS SECTION -->
+  <section class="case-section reveal-item delay-3">
+    <div class="case-content">
+      <h2>Overview</h2>
+      <p>
+    In this prototype project I have decided to investigate the Goal-Gradient Effect law, which states that the tendency to approach a goal increases with the proximity of it to the user. With that said, I proceeded to investigate it with a fast food restaurants websites hero section, with the only difference being the order button.
+      </p>
+      <img src="locker-process.jpg" alt="Design Process" class="case-image">
+      <img src="locker-process.jpg" alt="Design Process" class="case-image">
+    </div>
+  </section>
+
+  <section class="case-section reveal-item delay-3">
+    <div class="case-content">
+      <h2>A/B Prototype</h2>
+      <p>
+  Version A has a button that says Order now, its focused more on the utility and its straight forward in meaning. Whereas Version B has a ‘’Taste it now’’ button which is meant to ‘’bring’’ the emotional experience of eating a burger closer to the user, although in practice he still must order it after pressing.  </p>
+      <img src="locker-process.jpg" alt="Design Process" class="case-image">
+    </div>
+  </section>
+
+
+
+  <!-- SOLUTION SECTION -->
+  <section class="case-section reveal-item delay-5">
+    <div class="case-content">
+      <h2>Hypotheses</h2>
+      <p>
+      According to my hypothesis based on the goal gradient effect law, the version B would be more attractive to the users and hence they would press it faster than the version A, due to the wording of the button that creates the feeling of already being able to eat the burger.
+      Whereas the other button still implies in a straight forward way that he still has a long way before he gets to eat it.</p>
+      <img src="locker-solution.jpg" alt="Final Solution" class="case-image">
+    </div>
+  </section>
+
+  <section class="case-section reveal-item delay-5">
+    <div class="case-content">
+      <h2>Testing</h2>
+      <p>
+      My hypothesis turned out to be right as the users saw the button that was triggering their emotions and desire for food as more attractive. The users thought out loud as I encouraged them to do so and the reactions I discovered was that they would get a instant desire to press on B version with expressions like ‘’mmm I wanna taste it’’. 
+      Whereas the version A had them behave in a more generic way without any expressions characteristic of excitement.
+      </p>
+      <img src="locker-solution.jpg" alt="Final Solution" class="case-image">
+    </div>
+  </section>
+
+  <script>
+    // Universal scroll reveal (same as other pages)
+    const revealElements = document.querySelectorAll('.reveal-item');
+    const revealOnScroll = () => {
+      const windowHeight = window.innerHeight;
+      revealElements.forEach(el => {
+        const top = el.getBoundingClientRect().top;
+        if (top < windowHeight - 100) {
+          el.classList.add('visible');
+        }
+      });
+    };
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
+  </script>
+</body>
+</html>
