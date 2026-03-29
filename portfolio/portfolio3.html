@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Locker Hybrid Prototype | Maciej Przybylski</title>
+  <link rel="stylesheet" href="portfolio.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<!-- CONTACT MODAL -->
+<div id="contact-modal" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h3>Let's talk!</h3>
+      <span class="close">&times;</span>
+    </div>
+    <div class="contact-info">
+      <div class="contact-item">
+        <strong>Phone</strong>
+        <p>+31 6 57298110</p>
+      </div>
+      <div class="contact-item">
+        <strong>Email</strong>
+        <p>benjitsupt@gmail.com</p>
+      </div>
+    </div>
+  </div>
+</div>
+<body>
+  <!-- Dust effect canvas -->
+  <canvas id="dust-canvas" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0;"></canvas>
+
+  <header class="sticky-header">
+    <nav>
+      <ul>
+        <li><a href="portfolio.html">Home</a></li>
+        <li><a href="portfolio2.html">About</a></li>
+        <li><a href="#" class="nav-contact" data-modal="contact-modal">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- HERO: Photo + Title + Description -->
+  <section class="case-hero reveal-item">
+    <div class="photo-container">
+      <!-- <img src="portfolioimages/herofestival.png" alt="Locker Hybrid Prototype" class="case-hero-image"> -->
+    </div>
+    <div class="hero-text">
+      <h1 class="reveal-item delay-1">Locker Hybrid Prototype</h1>
+      <p class="reveal-item delay-2">
+        A 3-week design sprint exploring the intersection of physical hardware and digital companion apps. 
+        Focused on seamless user flows across both touchpoints.
+      </p>
+    </div>
+  </section>
+
+  <!-- PROCESS SECTION -->
+  <section class="case-section reveal-item delay-3">
+    <div class="case-content">
+      <h2>Idea</h2>
+      <p>
+     I began with quick user research on festival lockers by interviewing five festival-goers. The main insights that I uncovered were concerns about security and a desire for extra features.
+After sketching my ideas, I built an initial analog prototype featuring three security options: password, bracelet scanner, and phone app, allowing backup access if one method failed. Inside, I added a charging port and a simulated mini cooling system button, as these were highly valued by users. The locker measured 40×30 cm, thus big enough to fit most essential belongings.
+
+      </p>
+      <img src="portfolioimages/sketchlocker.jpg" alt="Design Process" class="case-image">
+      <img src="portfolioimages/locker.jpg" alt="Design Process" class="case-image">
+    </div>
+  </section>
+
+  <section class="case-section reveal-item delay-3">
+    <div class="case-content">
+      <h2>Testing</h2>
+      <p>
+    I ran usability tests with five classmates, asking them to complete key tasks while thinking aloud. 
+    They found the design sturdy and appreciated the charging port, but there was confusion about how the password system worked.
+      </p>
+      <img src="portfolioimages/oscartesting.jpg" alt="Design Process" class="case-image">
+    </div>
+  </section>
+
+
+
+  <!-- SOLUTION SECTION -->
+  <section class="case-section reveal-item delay-5">
+    <div class="case-content">
+      <h2>Improvements</h2>
+      <p>
+      <br> Combined password and scan data on one ticket for clarity. </br>
+
+
+<br>Used consistent yellow accents as visual cues for scanning interaction.</br>
+
+
+<br>Moved the cooling button inside and added a light for better visibility.</br>
+
+
+<br>Included a built-in charging cable.</br>
+
+      </p>
+      <img src="portfolioimages/improvements.png" alt="Final Solution" class="case-image2">
+    </div>
+  </section>
+
+  <!-- MOODBOARDING / APP DESIGN CAROUSEL -->
+<section class="case-section reveal-item delay-5">
+  <div class="case-content">
+    <h2>Moodboarding / App Design</h2>
+    <p>
+      After moodboarding that helped me get into the aesthetics of the theme I designed a companion app that matched the lively festival atmosphere. The first version focused on minimal steps to access main functions.
+      However upon testing the Heuristic evaluation showed strong aesthetics and usability but exposed issues in flow and security: the link between app and locker wasn't clear, and the remote unlock feature felt unsafe.
+    </p>
+    
+   <!-- 5 WIREFRAMES HORIZONTAL STRIP -->
+    <div class="wireframe-strip">
+      <img src="portfolioimages/LandingPage.png" alt="Wireframe 1" class="strip-image">
+      <img src="portfolioimages/LoginPage.png" alt="Wireframe 2" class="strip-image">
+      <img src="portfolioimages/mainpage.png" alt="Wireframe 3" class="strip-image">
+      <img src="portfolioimages/lockunlock.png" alt="Wireframe 4" class="strip-image">
+      <img src="portfolioimages/customizepage.png" alt="Wireframe 5" class="strip-image">
+    </div>
+
+<div class="lightbox" id="lightbox"></div> 
+
+
+<section class="case-section reveal-item delay-5">
+  <div class="case-content">
+    <h2>Second Iteration</h2>
+    <p>
+I redesigned the flow: users now start by scanning a QR code on their ticket to connect to the locker system and select an available locker. The locker can only be unlocked within close range for better security.
+    </p>
+    
+   <!-- 5 WIREFRAMES HORIZONTAL STRIP -->
+    <div class="wireframe-strip">
+      <img src="portfolioimages/portfolioimages2/qrcode.png" alt="Wireframe 1" class="strip-image">
+      <img src="portfolioimages/portfolioimages2/choosselocker.png" alt="Wireframe 2" class="strip-image">
+      <img src="portfolioimages/portfolioimages2/unlock.png" alt="Wireframe 5" class="strip-image">
+      <img src="portfolioimages/portfolioimages2/outofrange.png" alt="Wireframe 5" class="strip-image">
+    </div>
+
+ <section class="case-section reveal-item delay-5">
+    <div class="case-content">
+      <h2>Reflection</h2>
+      <p>
+      This project taught me the value of rapid iteration and feedback. Although early prototypes had flow gaps, I managed to quickly improve them. I enjoyed the idea of  mixing physical and digital elements, which made the process more rewarding.
+
+      </p>
+    </div>
+  </section>
+  <script>
+    // Universal scroll reveal (same as other pages)
+    const revealElements = document.querySelectorAll('.reveal-item');
+    const revealOnScroll = () => {
+      const windowHeight = window.innerHeight;
+      revealElements.forEach(el => {
+        const top = el.getBoundingClientRect().top;
+        if (top < windowHeight - 100) {
+          el.classList.add('visible');
+        }
+      });
+    };
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
+
+    // CASE STUDY CAROUSEL
+document.addEventListener('DOMContentLoaded', function() {
+  // Your existing scroll reveal code...
+  
+  // Carousel functionality
+  const track = document.querySelector('.carousel-track');
+  const slides = document.querySelectorAll('.carousel-slide');
+  const dots = document.querySelectorAll('.dot');
+  const prevBtn = document.querySelector('.carousel-prev');
+  const nextBtn = document.querySelector('.carousel-next');
+  
+  let currentSlide = 0;
+  
+  function updateCarousel() {
+    track.style.transform = `translateY(-${currentSlide * 100}%)`;
+    dots.forEach((dot, index) => {
+      dot.classList.toggle('active', index === currentSlide);
+    });
+  }
+  
+  if (nextBtn && prevBtn) {
+    nextBtn.addEventListener('click', () => {
+      currentSlide = (currentSlide + 1) % slides.length;
+      updateCarousel();
+    });
+    
+    prevBtn.addEventListener('click', () => {
+      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+      updateCarousel();
+    });
+    
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        currentSlide = index;
+        updateCarousel();
+      });
+    });
+  }
+});
+
+  // CONTACT MODAL
+  const modal = document.getElementById('contact-modal');
+  const contactBtn = document.querySelector('.nav-contact');
+  const closeBtn = document.querySelector('.close');
+
+  if (contactBtn) {
+    contactBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      if (modal) modal.style.display = 'block';
+    });
+  }
+
+  function closeModal() {
+    if (modal) modal.style.display = 'none';
+  }
+
+  if (closeBtn) {
+    closeBtn.addEventListener('click', closeModal);
+  }
+
+  window.addEventListener('click', function(e) {
+    if (e.target === modal) {
+      closeModal();
+    }
+  });
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && modal && modal.style.display === 'block') {
+      closeModal();
+    }
+  });
+
+  // Dust particle animation (canvas)
+  const canvas = document.getElementById("dust-canvas");
+  const ctx = canvas.getContext("2d");
+
+  let particles = [];
+  const PARTICLE_COUNT = 120;
+  const SPEED_MIN = 0.15;
+  const SPEED_MAX = 0.55;
+
+  function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+
+  window.addEventListener("resize", resizeCanvas);
+  resizeCanvas();
+
+  function randomRange(min, max) {
+    return Math.random() * (max - min) + min;
+  }
+
+  function createParticle() {
+    const size = randomRange(0.5, 2.4);
+    return {
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      radius: size,
+      speedX: randomRange(-SPEED_MAX, SPEED_MAX),
+      speedY: randomRange(SPEED_MIN, SPEED_MAX),
+      alpha: randomRange(0.18, 0.45)
+    };
+  }
+
+  function initParticles() {
+    particles = [];
+    for (let i = 0; i < PARTICLE_COUNT; i++) {
+      particles.push(createParticle());
+    }
+  }
+
+  function updateParticles() {
+    for (const p of particles) {
+      p.x += p.speedX;
+      p.y += p.speedY;
+
+      if (p.y > canvas.height) p.y = -5;
+      if (p.y < -5) p.y = canvas.height + 5;
+      if (p.x > canvas.width + 5) p.x = -5;
+      if (p.x < -5) p.x = canvas.width + 5;
+    }
+  }
+
+  function drawParticles() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    for (const p of particles) {
+      const gradient = ctx.createRadialGradient(
+        p.x, p.y, 0,
+        p.x, p.y, p.radius * 3
+      );
+      gradient.addColorStop(0, `rgba(180, 180, 190, ${p.alpha})`);
+      gradient.addColorStop(1, "rgba(180, 180, 190, 0)");
+
+      ctx.fillStyle = gradient;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.radius * 3, 0, Math.PI * 2);
+      ctx.fill();
+    }
+  }
+
+  function animate() {
+    updateParticles();
+    drawParticles();
+    requestAnimationFrame(animate);
+  }
+
+  initParticles();
+  animate();
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | Maciej Przybylski</title>
+  <link rel="stylesheet" href="portfolio.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<!-- CONTACT MODAL -->
+<div id="contact-modal" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h3>Let's talk!</h3>
+      <span class="close">&times;</span>
+    </div>
+    <div class="contact-info">
+      <div class="contact-item">
+        <strong>Phone</strong>
+        <p>+31 6 57298110</p>
+      </div>
+      <div class="contact-item">
+        <strong>Email</strong>
+        <p>benjitsupt@gmail.com</p>
+      </div>
+    </div>
+  </div>
+</div>
+<body>
+  <!-- Dust effect canvas -->
+  <canvas id="dust-canvas" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0;"></canvas>
+
+  <header class="sticky-header">
+    <nav>
+      <ul>
+        <li><a href="portfolio.html">Home</a></li>
+        <li><a href="portfolio2.html" class="active">About</a></li>
+        <li><a href="#" class="nav-contact" data-modal="contact-modal">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="about-hero reveal-item">
+    <div class="about-content">
+      <div class="hero-text">
+        <h1 class="reveal-item delay-0">
+          Hi, I'm <span class="highlight">Maciej Przybylski</span>
+        </h1>
+        <p class="reveal-item delay-1">
+          I'm a UX/UI designer based in The Hague, Netherlands. A creative UX Designer with a passion for prototyping digital interfaces and physical products that make a positive impact on people’s lives. I ground my work in thorough research and empathy for the target audience. My experience has strengthened my ability to collaborate effectively in teams taking initiative when needed but also supporting others to achieve shared goals.
+        </p>
+      </div>
+      <div class="photo-container">
+        <img src="portfolioimages/profile.jpg" alt="Maciej Przybylski" class="profile-photo">
+      </div>
+    </div>
+  </section>
+
+  <section class="about-grid reveal-item delay-2">
+    <div class="grid-column">
+      <h3>Tools</h3>
+      <ul>
+        <li>Figma</li>
+        <li>Krita</li>
+        <li>Framer</li>
+        <li>VS Code</li>
+      </ul>
+    </div>
+
+    <div class="grid-column">
+      <h3>Skills</h3>
+      <ul>
+        <li>User Research</li>
+        <li>Wireframing</li>
+        <li>Prototyping</li>
+        <li>Vibe Coding</li>
+        <li>Sketching</li>
+        <li>Front-end Development</li>
+      </ul>
+    </div>
+
+    <div class="grid-column">
+      <h3>Interests</h3>
+      <ul>
+        <li>History</li>
+        <li>Books</li>
+        <li>Jiujitsu</li>
+        <li>Languages</li>
+        <li>Travel</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Same scroll reveal script -->
+  <script>
+    const revealElements = document.querySelectorAll('.reveal-item');
+    const revealOnScroll = () => {
+      const windowHeight = window.innerHeight;
+      revealElements.forEach(el => {
+        const top = el.getBoundingClientRect().top;
+        if (top < windowHeight - 100) {
+          el.classList.add('visible');
+        }
+      });
+    };
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
+
+    // CONTACT MODAL
+    const modal = document.getElementById('contact-modal');
+    const contactBtn = document.querySelector('.nav-contact');
+    const closeBtn = document.querySelector('.close');
+
+    if (contactBtn) {
+      contactBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        if (modal) modal.style.display = 'block';
+      });
+    }
+
+    function closeModal() {
+      if (modal) modal.style.display = 'none';
+    }
+
+    if (closeBtn) {
+      closeBtn.addEventListener('click', closeModal);
+    }
+
+    window.addEventListener('click', function(e) {
+      if (e.target === modal) {
+        closeModal();
+      }
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && modal && modal.style.display === 'block') {
+        closeModal();
+      }
+    });
+
+    // Dust particle animation (canvas)
+    const canvas = document.getElementById("dust-canvas");
+    const ctx = canvas.getContext("2d");
+
+    let particles = [];
+    const PARTICLE_COUNT = 120;
+    const SPEED_MIN = 0.15;
+    const SPEED_MAX = 0.55;
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+
+    window.addEventListener("resize", resizeCanvas);
+    resizeCanvas();
+
+    function randomRange(min, max) {
+      return Math.random() * (max - min) + min;
+    }
+
+    function createParticle() {
+      const size = randomRange(0.5, 2.4);
+      return {
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        radius: size,
+        speedX: randomRange(-SPEED_MAX, SPEED_MAX),
+        speedY: randomRange(SPEED_MIN, SPEED_MAX),
+        alpha: randomRange(0.18, 0.45)
+      };
+    }
+
+    function initParticles() {
+      particles = [];
+      for (let i = 0; i < PARTICLE_COUNT; i++) {
+        particles.push(createParticle());
+      }
+    }
+
+    function updateParticles() {
+      for (const p of particles) {
+        p.x += p.speedX;
+        p.y += p.speedY;
+
+        if (p.y > canvas.height) p.y = -5;
+        if (p.y < -5) p.y = canvas.height + 5;
+        if (p.x > canvas.width + 5) p.x = -5;
+        if (p.x < -5) p.x = canvas.width + 5;
+      }
+    }
+
+    function drawParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (const p of particles) {
+        const gradient = ctx.createRadialGradient(
+          p.x, p.y, 0,
+          p.x, p.y, p.radius * 3
+        );
+        gradient.addColorStop(0, `rgba(180, 180, 190, ${p.alpha})`);
+        gradient.addColorStop(1, "rgba(180, 180, 190, 0)");
+
+        ctx.fillStyle = gradient;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius * 3, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+
+    function animate() {
+      updateParticles();
+      drawParticles();
+      requestAnimationFrame(animate);
+    }
+
+    initParticles();
+    animate();
+  </script>
+</body>
+</html>
+
