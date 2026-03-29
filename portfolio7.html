@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Publishing for web | Maciej Przybylski</title>
+  <link rel="stylesheet" href="portfolio.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<!-- CONTACT MODAL -->
+<div id="contact-modal" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h3>Let's talk!</h3>
+      <span class="close">&times;</span>
+    </div>
+    <div class="contact-info">
+      <div class="contact-item">
+        <strong>Phone</strong>
+        <p>+31 6 57298110</p>
+      </div>
+      <div class="contact-item">
+        <strong>Email</strong>
+        <p>benjitsupt@gmail.com</p>
+      </div>
+    </div>
+  </div>
+</div>
+<body>
+  <!-- Dust effect canvas -->
+  <canvas id="dust-canvas" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0;"></canvas>
+
+  <header class="sticky-header">
+    <nav>
+      <ul>
+        <li><a href="portfolio.html">Home</a></li>
+        <li><a href="portfolio2.html">About</a></li>
+        <li><a href="#" class="nav-contact" data-modal="contact-modal">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- HERO: Photo + Title + Description -->
+  <section class="case-hero reveal-item">
+    <div class="photo-container">
+      <!-- <img src="portfolioimages/portfolioimages5/HEROWEBZINE.png" alt="Locker Hybrid Prototype" class="case-hero-image"> -->
+    </div>
+    <div class="hero-text">
+      <h1 class="reveal-item delay-1">Publishing for web</h1>
+      <p class="reveal-item delay-2">
+        Building a website from scratch using Figma, HTML and CSS.
+      </p>
+    </div>
+  </section>
+
+  <!-- PROCESS SECTION -->
+  <section class="case-section reveal-item delay-3">
+    <div class="case-content">
+      <h2>Overview</h2>
+      <p>
+For this project I had to design and then code a website which best expressed my own interests and personality. It was a 3 months long journey through which I grew my knowledge on the reality of transferring the design into code.
+      </p>
+   <img src="portfolioimages/portfoliowebzine/Hero.png" alt="User Portrait" class="case-image">
+    </div>
+  </section>
+
+  <section class="case-section reveal-item delay-3">
+    <div class="case-content">
+      <h2>Moodboarding</h2>
+       <p>
+      <p>
+ When working on this project I thought of how I could combine the idea of a simple travel blog website with the aesthetics of an old vintage map,and a manuscript found in the desert. Before proceeding with any design I first did some little moodboarding. Just enough to get some inspiration and be able to sample some basic colors. Besides old maps and manuscripts I also looked at the design used in the interface of ‘’Assassin's Creed Mirage’’ since that game's designs were exactly like what I was going for aesthetically.
+      <img src="portfolioimages/portfolioimages5/Moodboard.png" alt="User Portrait" class="case-image">
+    </div>
+  </section>
+
+
+
+  <!-- SOLUTION SECTION -->
+  <section class="case-section reveal-item delay-5">
+    <div class="case-content">
+      <h2>Initial Designs</h2>
+      <p>
+   Next up I did some low and mid fidelity designs of the main page, just to figure out the layout and grids without having to yet worry too much about the content, colors and animations. I used 5 columns with a margin of 70px and the gutter at 20px. I was going for a clean, somewhat minimalistic layout of a travel blog here. 
+        </p>
+      <p>
+      <img src="portfolioimages/portfolioimages5/initialprototypes.png" alt="Final Solution" class="case-image">
+    </div>
+  </section>
+
+  <section class="case-section reveal-item delay-3">
+    <div class="case-content">
+      <h2>Typography</h2>
+      <p> As for the typography I had quite a few fonts on my mind but ultimately I ended up with Alegreya. This font with its serif style edges gives that classical look, but at the same time its subtle roundness gives a subtle feel of a youthful playful adventure.
+    </p>
+     <img src="portfolioimages/portfoliowebzine/typographty.png" alt="Final Solution" class="case-image">
+   
+    </div>
+  </section>
+
+  <section class="case-section reveal-item delay-5">
+    <div class="case-content">
+      <h2>Color Palette</h2>
+      <p>
+   The color palette is very simple all throughout my webzine, 60% of it is a sandy beige for the background and navigation bar (although with a gradient at lower opacity) and also for the soft low opacity edges that can be seen on pictures and in the hero sections. 
+   This design is meant to simulate in a way the look of an old map, or a manuscript found in the sand, where most of it might be uncovered, but there's still some sand over the edges. 
+     </p>
+         <p>
+   A color which is the 30% of the design is a mix of beige and brown, however I didn't use an actual color from ‘’fill’’ on figma or ‘’background color’’ in css, but rather I used a ready made component ,from one of my classmates, of an old paper texture and set it at a lower opacity of 50%.
+    Here I wanted this to be used behind the majority of the text found in the webzine to make it look like an actual note or manuscript.
+        </p>
+      <p>
+   The color that makes up the remaining 10% is a dark red, which is a color I found on the vintage map being used as an accent color for routes, and hence I sampled it and used it for accent as well.
+ It's found in my webzine in some of the text and hover animations as well as the logo and icons.</p>
+  <div class="wireframe-strip">
+      <img src="portfolioimages/portfoliowebzine/red.png" alt="Wireframe 1" class="strip-image">
+      <img src="portfolioimages/portfoliowebzine/damagedpaper.png" alt="Wireframe 2" class="strip-image">
+      <img src="portfolioimages/portfoliowebzine/beige.png" alt="Wireframe 3" class="strip-image">
+      </div>
+    </div>
+  </section>
+
+    <section class="case-section reveal-item delay-5">
+    <div class="case-content">
+        <h2>Layout and Interactivity</h2>
+      <p>
+Initially the layout of the ‘’timeline of the journey” section had an actual timeline with photos and description on opposing sides.
+However I wanted to find a way to make it more interactive and give the user more of that ‘’digging out’’ manuscript from sand feel.
+Hence I came up with the hover cards where at first you only see pictures of locations and after hover the description appears. I reused that design and code for those cards all throughout the webzine for the ‘’highlights sections’’ of the pages.  
+ </p>
+        <img src="portfolioimages/portfoliowebzine/Oldtimeline.png" alt="Final Solution" class="case-image2">
+        <img src="portfolioimages/portfoliowebzine/Newtimline.png" alt="Final Solution" class="case-image2">
+ <p>
+Changes were also made in the initial layout of the main page’s learn more tables. At first I had dark red buttons with hover animations below, but I quickly found it boring and quite frankly difficult to arrange for it to match the text above nicely especially in the CSS.
+Hence I took inspiration from Assassin's Creed Mirage official website and noticed a nice hover animation with an arrow moving to the right as you hover your cursor over it, I applied the same effect to my webzine. It is supposed to give the user the feel of the line show them the path on a map.</p>
+  <img src="portfolioimages/portfoliowebzine/Firstintropage.png" alt="Final Solution" class="case-image">
+          <img src="portfolioimages/portfoliowebzine/Intropage.png" alt="Final Solution" class="case-image">
+    <p>In my original Figma design, the background had only a static notebook-style grid. In the coded version, I improved this by adding gently moving dust particles to bring the feeling of an old, dusty library. 
+        Because Figma has limited support for motion, I implemented this effect directly in the browser with JavaScript, using generative AI to speed up the more advanced parts of the scripting. The result is a subtle animated background that brings the portfolio to life without distracting from the content.</p>
+        <img src="portfolioimages/portfoliowebzine/Gird.png" alt="Final Solution" class="case-image">
+<img src="portfolioimages/portfoliowebzine/Dustparticles.png" alt="Final Solution" class="case-image">
+    </div>
+  </section>
+
+ <section class="case-section reveal-item delay-5">
+    <div class="case-content">
+      <h2>Reflection</h2>
+      <p>
+    Despite the initial challenges, this project ended up being a valuable learning experience that helped me grow as a designer and developer. I finally got to see first hand how the transition from design to development isn't always straightforward, and that there will always be differences between the design and the final implementation. However, I learned to look at those changes not as failures but rather as part of the design process. </p>
+    </div>
+  </section>
+  <script>
+    // Universal scroll reveal (same as other pages)
+    const revealElements = document.querySelectorAll('.reveal-item');
+    const revealOnScroll = () => {
+      const windowHeight = window.innerHeight;
+      revealElements.forEach(el => {
+        const top = el.getBoundingClientRect().top;
+        if (top < windowHeight - 100) {
+          el.classList.add('visible');
+        }
+      });
+    };
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
+
+    // Dust particle animation (canvas)
+    const canvas = document.getElementById("dust-canvas");
+    const ctx = canvas.getContext("2d");
+
+    let particles = [];
+    const PARTICLE_COUNT = 120;
+    const SPEED_MIN = 0.15;
+    const SPEED_MAX = 0.55;
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+
+    window.addEventListener("resize", resizeCanvas);
+    resizeCanvas();
+
+    function randomRange(min, max) {
+      return Math.random() * (max - min) + min;
+    }
+
+    function createParticle() {
+      const size = randomRange(0.5, 2.4);
+      return {
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        radius: size,
+        speedX: randomRange(-SPEED_MAX, SPEED_MAX),
+        speedY: randomRange(SPEED_MIN, SPEED_MAX),
+        alpha: randomRange(0.18, 0.45)
+      };
+    }
+
+    function initParticles() {
+      particles = [];
+      for (let i = 0; i < PARTICLE_COUNT; i++) {
+        particles.push(createParticle());
+      }
+    }
+
+    function updateParticles() {
+      for (const p of particles) {
+        p.x += p.speedX;
+        p.y += p.speedY;
+
+        if (p.y > canvas.height) p.y = -5;
+        if (p.y < -5) p.y = canvas.height + 5;
+        if (p.x > canvas.width + 5) p.x = -5;
+        if (p.x < -5) p.x = canvas.width + 5;
+      }
+    }
+
+    function drawParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (const p of particles) {
+        const gradient = ctx.createRadialGradient(
+          p.x, p.y, 0,
+          p.x, p.y, p.radius * 3
+        );
+        gradient.addColorStop(0, `rgba(180, 180, 190, ${p.alpha})`);
+        gradient.addColorStop(1, "rgba(180, 180, 190, 0)");
+
+        ctx.fillStyle = gradient;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius * 3, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+
+    function animate() {
+      updateParticles();
+      drawParticles();
+      requestAnimationFrame(animate);
+    }
+
+    initParticles();
+    animate();
+
+    // CONTACT MODAL
+    const modal = document.getElementById('contact-modal');
+    const contactBtn = document.querySelector('.nav-contact');
+    const closeBtn = document.querySelector('.close');
+
+    if (contactBtn) {
+      contactBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        if (modal) modal.style.display = 'block';
+      });
+    }
+
+    function closeModal() {
+      if (modal) modal.style.display = 'none';
+    }
+
+    if (closeBtn) {
+      closeBtn.addEventListener('click', closeModal);
+    }
+
+    window.addEventListener('click', function(e) {
+      if (e.target === modal) {
+        closeModal();
+      }
+    });
+
+    window.addEventListener('load', revealOnScroll);
+  </script>
+</body>

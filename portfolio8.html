@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Design Critique: THUAS Booking System | Maciej Przybylski</title>
+  <link rel="stylesheet" href="portfolio.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Dust effect canvas -->
+  <canvas id="dust-canvas" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0;"></canvas>
+
+  <header class="sticky-header">
+    <nav>
+      <ul>
+        <li><a href="portfolio.html">Home</a></li>
+        <li><a href="portfolio2.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- HERO: Photo + Title + Description -->
+  <section class="case-hero reveal-item">
+    <div class="photo-container">
+      <!-- <img src="portfolioimages/THUAS.png" alt="Locker Hybrid Prototype" class="case-hero-image"> -->
+    </div>
+    <div class="hero-text">
+      <h1 class="reveal-item delay-1">Design Critique: THUAS Booking System</h1>
+      <p class="reveal-item delay-2">
+        
+      </p>
+    </div>
+  </section>
+
+  <!-- PROCESS SECTION -->
+  <section class="case-section reveal-item delay-3">
+    <div class="case-content">
+      <h2>Overview</h2>
+      <p>
+In this project I was tasked to perform my first-time user walkthrough of our university's room booking system, documenting the experience as it unfolded. It was a step by step design critique of the process as it unfolded.
+      </p>
+    </div>
+  </section>
+
+  <section class="case-section reveal-item delay-3">
+    <div class="case-content">
+      <h2>Initial Observations</h2>
+       <p>
+      <p>
+The first thing I noticed was that I had no idea where to begin. The page was dominated by large visual blocks that looked interactive but weren't which immediately set a confusing tone. Nothing on screen clearly said "start here."
+Making things worse, an icon in the top-right corner looked like a forward or next button. It was actually a logout. It conflicted with my pre-existing mental model for what a logout button looks like. For a first-time user still finding their footing, accidentally hitting that would mean losing all progress and starting over.
+   <img src="portfolioimages/portfoliothuas/Mainpage.png" alt="User Portrait" class="case-image2">
+    </div>
+  </section>
+
+
+
+  <!-- SOLUTION SECTION -->
+  <section class="case-section reveal-item delay-5">
+    <div class="case-content">
+      <h2>Booking Section</h2>
+      <p>
+  Eventually I found my way to the Bookings section, which opened to a nearly blank white page. The only interactive element was a small search icon placed just below the site logo, with almost no breathing room between them. It’s a violation of the Fitts law: small targets placed near other clickable elements make for uncomfortable interactions and increase the risk of motor slips.  </p>
+      <p>
+      <img src="portfolioimages/portfoliothuas/booking.png" alt="Final Solution" class="case-image2">
+    </div>
+  </section>
+
+  <section class="case-section reveal-item delay-3">
+    <div class="case-content">
+      <h2>Responsiveness</h2>
+      <p> Next up I noticed a problem with responsiveness as clicking the search icon triggered a loading spinner that ran for around 10 seconds. There was no progress bar, just a looping animation that gave no signs of the system working. Ten seconds is long enough for users' attention to wander, and without any reassurance from the interface, it's easy to start doubting whether anything is happening at all. </p>
+    <img src="portfolioimages/portfoliothuas/Responsivness.png" alt="Final Solution" class="case-image2">
+    </div>
+  </section>
+
+  <section class="case-section reveal-item delay-5">
+    <div class="case-content">
+      <h2>Unfamiliar Terminology</h2>
+      <p>
+   The next screen asked me to select a "week." however they’re counted according to academical weeks. This is the kind of technical terminology that makes sense to whoever built the system, but means very little to the average student trying to book a room on a Tuesday afternoon. Furthermore, it required me to stop, and leave the page to look up where we were in the academic calendar. </p>
+    <img src="portfolioimages/portfoliothuas/UnfamiliarTerminology.png" alt="Final Solution" class="case-image">
+  </div>
+  </section>
+
+    <section class="case-section reveal-item delay-5">
+    <div class="case-content">
+        <h2>Submit Button</h2>
+      <p>
+Finally, I managed to find how to submit my booking. It was a small ‘’New’’ button on the bottom right corner of the screen. It was not placed in any place where my attention would be centered, therefore it remained in my peripheral vision.
+ What made it worse was that here were absolutely no visual cues that could signify it being a call to action, nor was the text symbolizing the fact that it's a submission button.</p>
+        <img src="portfolioimages/portfoliothuas/submit.png" alt="Final Solution" class="case-image">
+ </div>
+  </section>
+
+ <section class="case-section reveal-item delay-5">
+    <div class="case-content">
+      <h2>Reflection</h2>
+      <p>
+   The booking system does many things wrong, the gestalt principles are not followed, the system uses unfamiliar terminology and iconography. Anyone unfamiliar with it will inevitably go through a taxing experience that requires much from their working memory. 
+The problems here are major gaps in the core experience that will possibly cause users to give up. A booking system only works if people can actually use it to book something.
+</div>
+  </section>
+
+  <script>
+    // Universal scroll reveal (same as other pages)
+    const revealElements = document.querySelectorAll('.reveal-item');
+    const revealOnScroll = () => {
+      const windowHeight = window.innerHeight;
+      revealElements.forEach(el => {
+        const top = el.getBoundingClientRect().top;
+        if (top < windowHeight - 100) {
+          el.classList.add('visible');
+        }
+      });
+    };
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
+
+    // Dust particle animation (canvas)
+    const canvas = document.getElementById("dust-canvas");
+    const ctx = canvas.getContext("2d");
+
+    let particles = [];
+    const PARTICLE_COUNT = 120;
+    const SPEED_MIN = 0.15;
+    const SPEED_MAX = 0.55;
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+
+    window.addEventListener("resize", resizeCanvas);
+    resizeCanvas();
+
+    function randomRange(min, max) {
+      return Math.random() * (max - min) + min;
+    }
+
+    function createParticle() {
+      const size = randomRange(0.5, 2.4);
+      return {
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        radius: size,
+        speedX: randomRange(-SPEED_MAX, SPEED_MAX),
+        speedY: randomRange(SPEED_MIN, SPEED_MAX),
+        alpha: randomRange(0.18, 0.45)
+      };
+    }
+
+    function initParticles() {
+      particles = [];
+      for (let i = 0; i < PARTICLE_COUNT; i++) {
+        particles.push(createParticle());
+      }
+    }
+
+    function updateParticles() {
+      for (const p of particles) {
+        p.x += p.speedX;
+        p.y += p.speedY;
+
+        if (p.y > canvas.height) p.y = -5;
+        if (p.y < -5) p.y = canvas.height + 5;
+        if (p.x > canvas.width + 5) p.x = -5;
+        if (p.x < -5) p.x = canvas.width + 5;
+      }
+    }
+
+    function drawParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (const p of particles) {
+        const gradient = ctx.createRadialGradient(
+          p.x, p.y, 0,
+          p.x, p.y, p.radius * 3
+        );
+        gradient.addColorStop(0, `rgba(180, 180, 190, ${p.alpha})`);
+        gradient.addColorStop(1, "rgba(180, 180, 190, 0)");
+
+        ctx.fillStyle = gradient;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius * 3, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+
+    function animate() {
+      updateParticles();
+      drawParticles();
+      requestAnimationFrame(animate);
+    }
+
+    initParticles();
+    animate();
+    window.addEventListener('load', revealOnScroll);
+  </script>
+</body>
