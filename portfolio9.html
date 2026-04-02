@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Design Critique: THUAS Booking System | Maciej Przybylski</title>
+  <link rel="stylesheet" href="portfolio.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Dust effect canvas -->
+  <canvas id="dust-canvas" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0;"></canvas>
+
+  <header class="sticky-header">
+    <nav>
+      <ul>
+        <li><a href="portfolio.html">Home</a></li>
+        <li><a href="portfolio2.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- HERO: Photo + Title + Description -->
+  <section class="case-hero reveal-item">
+    <div class="photo-container">
+      <!-- <img src="portfolioimages/THUAS.png" alt="Locker Hybrid Prototype" class="case-hero-image"> -->
+    </div>
+    <div class="hero-text">
+      <h1 class="reveal-item delay-1">Improving User Experience of “Help To Solve”</h1>
+      <p class="reveal-item delay-2">
+        
+      </p>
+    </div>
+  </section>
+
+  <!-- PROCESS SECTION -->
+  <section class="case-section reveal-item delay-3">
+    <div class="case-content">
+      <h2>Overview</h2>
+      <p>
+Overview
+In this project I was tasked by a client to improve the design and usability of their website. Help to solve is a brand new start up based in Rabat, Morocco, that offers technical support services for companies.
+The primary goal was to create a simple, intuitive experience that allows users to quickly contact support or book an appointment. A secondary goal was to introduce a distinct brand identity that would help the company stand out in a competitive market..
+  </p>
+    </div>
+  </section>
+
+  <section class="case-section reveal-item delay-3">
+    <div class="case-content">
+      <h2>Problem</h2>
+      <img src="helptosolveold.png" alt="Final Solution" class="case-image2">
+       <p>
+      <p>
+The first thing I noticed was that I had no idea where to begin. The page was dominated by large visual blocks that looked interactive but weren't which immediately set a confusing tone. Nothing on screen clearly said "start here."
+Making things worse, an icon in the top-right corner looked like a forward or next button. It was actually a logout. It conflicted with my pre-existing mental model for what a logout button looks like. For a first-time user still finding their footing, accidentally hitting that would mean losing all progress and starting over.
+   
+    </div>
+  </section>
+
+
+
+  <!-- SOLUTION SECTION -->
+  <section class="case-section reveal-item delay-5">
+    <div class="case-content">
+      <h2>Solution</h2>
+      <img src="helptosolvenew.png" alt="Final Solution" class="case-image2">
+      <p>
+ I focused on simplifying the experience and strengthening the brand. The hero section was redesigned to include a single, clear call to action, allowing users to quickly understand the main goal and act without distraction.
+
+<p>The top navigation was replaced with a scroll-based sidebar, giving users a clearer sense of progression throughout the page. As users scroll, the active section is highlighted, helping them understand where they are and easily navigate to other sections.</p>
+
+
+<p>To address the lack of identity, I introduced a more playful and memorable visual direction inspired by Moroccan culture. This included creating a character called “Taji,” which adds personality to the interface. </p>
+
+<p>Additionally I added animation to the page in order to bring more life to it by adding typing animation in the heading which changes the blue highlighted word to a few different variations. While Taji gently floats with stars flying behind him.
+  <p>
+    </div>
+  </section>
+
+  <section class="case-section reveal-item delay-3">
+    <div class="case-content">
+      <h2>Reflection</h2>
+      <p> 
+This project taught me the importance of clarity and prioritization in UX design. Small decisions can significantly improve usability and user flow.
+I also learned how combining usability with a strong visual identity can elevate a product from functional to memorable. Balancing simplicity with personality is something I aim to continue developing in future projects.
+ </p>
+    </div>
+  </section>
+
+
+  <script>
+    // Universal scroll reveal (same as other pages)
+    const revealElements = document.querySelectorAll('.reveal-item');
+    const revealOnScroll = () => {
+      const windowHeight = window.innerHeight;
+      revealElements.forEach(el => {
+        const top = el.getBoundingClientRect().top;
+        if (top < windowHeight - 100) {
+          el.classList.add('visible');
+        }
+      });
+    };
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
+
+    // Dust particle animation (canvas)
+    const canvas = document.getElementById("dust-canvas");
+    const ctx = canvas.getContext("2d");
+
+    let particles = [];
+    const PARTICLE_COUNT = 120;
+    const SPEED_MIN = 0.15;
+    const SPEED_MAX = 0.55;
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+
+    window.addEventListener("resize", resizeCanvas);
+    resizeCanvas();
+
+    function randomRange(min, max) {
+      return Math.random() * (max - min) + min;
+    }
+
+    function createParticle() {
+      const size = randomRange(0.5, 2.4);
+      return {
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        radius: size,
+        speedX: randomRange(-SPEED_MAX, SPEED_MAX),
+        speedY: randomRange(SPEED_MIN, SPEED_MAX),
+        alpha: randomRange(0.18, 0.45)
+      };
+    }
+
+    function initParticles() {
+      particles = [];
+      for (let i = 0; i < PARTICLE_COUNT; i++) {
+        particles.push(createParticle());
+      }
+    }
+
+    function updateParticles() {
+      for (const p of particles) {
+        p.x += p.speedX;
+        p.y += p.speedY;
+
+        if (p.y > canvas.height) p.y = -5;
+        if (p.y < -5) p.y = canvas.height + 5;
+        if (p.x > canvas.width + 5) p.x = -5;
+        if (p.x < -5) p.x = canvas.width + 5;
+      }
+    }
+
+    function drawParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (const p of particles) {
+        const gradient = ctx.createRadialGradient(
+          p.x, p.y, 0,
+          p.x, p.y, p.radius * 3
+        );
+        gradient.addColorStop(0, `rgba(180, 180, 190, ${p.alpha})`);
+        gradient.addColorStop(1, "rgba(180, 180, 190, 0)");
+
+        ctx.fillStyle = gradient;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius * 3, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+
+    function animate() {
+      updateParticles();
+      drawParticles();
+      requestAnimationFrame(animate);
+    }
+
+    initParticles();
+    animate();
+    window.addEventListener('load', revealOnScroll);
+  </script>
+</body>
