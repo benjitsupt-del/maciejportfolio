@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Reading The Wave | Maciej Przybylski</title>
+  <link rel="stylesheet" href="portfolio.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Dust effect canvas -->
+  <canvas id="dust-canvas" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0;"></canvas>
+
+  <header class="sticky-header">
+    <nav>
+      <ul>
+        <li><a href="portfolio.html">Home</a></li>
+        <li><a href="portfolio2.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- HERO: Photo + Title + Description -->
+  <section class="case-hero reveal-item">
+    <div class="photo-container">
+      <!-- <img src="portfolioimages/THUAS.png" alt="Locker Hybrid Prototype" class="case-hero-image"> -->
+    </div>
+    <div class="hero-text">
+      <h1 class="reveal-item delay-1">Reading The Wave: Creating a intuitive reading experience</h1>
+      <p class="reveal-item delay-2">
+        
+      </p>
+    </div>
+  </section>
+
+  <!-- PROCESS SECTION -->
+  <section class="case-section reveal-item delay-3">
+    <div class="case-content">
+      <h2>Overview</h2>
+      <p>
+Overview
+In this project I was tasked with turning a chapter from a book ‘’Mr. Palmero’’ into an interactive website that would portray the story in a creative way. </p>
+    </div>
+  </section>
+
+  <section class="case-section reveal-item delay-3">
+    <div class="case-content">
+      <h2>Problem</h2>
+      <p>
+Standard books are often difficult to read for most people who are often unskilled readers, people who can read, however reading long passages and entire pages takes a toil on their cognitive abilities. 
+The task at hand was to turn a normal page from a book titled ‘’Mr. Palermo’’ into a more readable and easy to follow experience.
+    </div>
+  </section>
+
+
+
+  <!-- SOLUTION SECTION -->
+  <section class="case-section reveal-item delay-5">
+    <div class="case-content">
+      <h2>Typography and Color Palette</h2>
+      <img src="style.png" alt="Final Solution" class="case-image2">
+      <p>
+My vision was to take the style and experience characteristic of AI interfaces and implement it into the navigation through the story. That meant using a minimalistic color palette with one distinguished call to action/accent color, a primary background color that creates contrast between itself and the interface. And 2 subtle variations of the primary color that distinguish the nav bar and messages in the ‘’AI chat’’.
+
+<p>The font used was ‘’Source Serif Pro’’. I chose it to combine the AI minimalism with the vibe of reading a book. In the body text I ensured to increase the line height and letter spacing to make the large paragraphs more readable for non skilled readers.</p>
+    </div>
+  </section>
+
+ <!-- SOLUTION SECTION -->
+  <section class="case-section reveal-item delay-5">
+    <div class="case-content">
+      <h2>Interface and layout</h2>
+      <img src="HomePage.png" alt="Final Solution" class="case-image2">
+      <img src="HomePage2.png" alt="Final Solution" class="case-image2">
+      <p>
+When it came to layout I utilized the characteristic combination of horizontal layout and vertical menu in the side navbar. The large heading followed by a chat message bar serves as the clear entry point for the user into the experience. 
+
+The side navbar marks the current location in order to help the user easily navigate through different options while avoiding confusion and mix up.
+
+Additionally Escape hatch is available by clicking on the home button in the side bar at all times throughout the experience.
+</p>
+    </div>
+  </section>
+ <section class="case-section reveal-item delay-5">
+    <div class="case-content">
+        <h2>Interface and layout</h2>
+      <img src="navigation1.png" alt="Final Solution" class="case-image2">
+      <img src="navigation3.png" alt="Final Solution" class="case-image2">
+      <p>
+The website mixes a few different navigation patterns and gives the user freedom to choose how they wish to navigate. 
+Firstly the website is fully connected, meaning the users can get to any page wherever they might be in the process of reading the story. 
+The story can also be read step by step by using the button (next) on the bottom of each part and likewise a pyramid pattern can be found here as the steps aren't linear but the return to main page option is present.
+</p>
+    </div>
+  </section>
+
+  <section class="case-section reveal-item delay-3">
+    <div class="case-content">
+      <h2>Reflection</h2>
+      <p> 
+This project allowed me to explore how AI-inspired interfaces can simplify complex content of the website. I was particularly interested in how minimal design can reduce friction and make information easier to process for the users.
+Designing this website helped me apply those principles in practice, and in the future, I aim to further explore interfaces that combine simplicity with immersive user experiences.
+</p>
+    </div>
+  </section>
+
+
+  <script>
+    // Universal scroll reveal (same as other pages)
+    const revealElements = document.querySelectorAll('.reveal-item');
+    const revealOnScroll = () => {
+      const windowHeight = window.innerHeight;
+      revealElements.forEach(el => {
+        const top = el.getBoundingClientRect().top;
+        if (top < windowHeight - 100) {
+          el.classList.add('visible');
+        }
+      });
+    };
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
+
+    // Dust particle animation (canvas)
+    const canvas = document.getElementById("dust-canvas");
+    const ctx = canvas.getContext("2d");
+
+    let particles = [];
+    const PARTICLE_COUNT = 120;
+    const SPEED_MIN = 0.15;
+    const SPEED_MAX = 0.55;
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+
+    window.addEventListener("resize", resizeCanvas);
+    resizeCanvas();
+
+    function randomRange(min, max) {
+      return Math.random() * (max - min) + min;
+    }
+
+    function createParticle() {
+      const size = randomRange(0.5, 2.4);
+      return {
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        radius: size,
+        speedX: randomRange(-SPEED_MAX, SPEED_MAX),
+        speedY: randomRange(SPEED_MIN, SPEED_MAX),
+        alpha: randomRange(0.18, 0.45)
+      };
+    }
+
+    function initParticles() {
+      particles = [];
+      for (let i = 0; i < PARTICLE_COUNT; i++) {
+        particles.push(createParticle());
+      }
+    }
+
+    function updateParticles() {
+      for (const p of particles) {
+        p.x += p.speedX;
+        p.y += p.speedY;
+
+        if (p.y > canvas.height) p.y = -5;
+        if (p.y < -5) p.y = canvas.height + 5;
+        if (p.x > canvas.width + 5) p.x = -5;
+        if (p.x < -5) p.x = canvas.width + 5;
+      }
+    }
+
+    function drawParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (const p of particles) {
+        const gradient = ctx.createRadialGradient(
+          p.x, p.y, 0,
+          p.x, p.y, p.radius * 3
+        );
+        gradient.addColorStop(0, `rgba(180, 180, 190, ${p.alpha})`);
+        gradient.addColorStop(1, "rgba(180, 180, 190, 0)");
+
+        ctx.fillStyle = gradient;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius * 3, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+
+    function animate() {
+      updateParticles();
+      drawParticles();
+      requestAnimationFrame(animate);
+    }
+
+    initParticles();
+    animate();
+    window.addEventListener('load', revealOnScroll);
+  </script>
+</body>
